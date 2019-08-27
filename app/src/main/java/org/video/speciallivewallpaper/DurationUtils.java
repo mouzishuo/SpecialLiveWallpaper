@@ -14,8 +14,8 @@ public class DurationUtils {
         i /= 3600;
         this.mFormatBuilder.setLength(0);
         if (i > 0) {
-            return this.mFormatter.format("%d:%02d:%02d", new Object[]{Integer.valueOf(i), Integer.valueOf(paramInt), Integer.valueOf(j)}).toString();
+            return this.mFormatter.format("%d:%02d:%02d", Integer.valueOf(i), Integer.valueOf(paramInt), Integer.valueOf(j)).toString();
         }
-        return this.mFormatter.format("%02d:%02d", new Object[]{Integer.valueOf(paramInt), Integer.valueOf(j)}).toString();
+        return this.mFormatter.format("%02d:%02d", Integer.valueOf(paramInt), Integer.valueOf(j)).toString();
     }
 }

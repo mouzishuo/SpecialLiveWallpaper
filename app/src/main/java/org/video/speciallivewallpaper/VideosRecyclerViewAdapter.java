@@ -12,7 +12,6 @@ import org.video.speciallivewallpaper.bean.Video;
 
 import java.util.ArrayList;
 
-
 public class VideosRecyclerViewAdapter extends RecyclerView.Adapter<VideosViewHolder> {
     private Context context;
     private ArrayList<Video> videos;
@@ -23,9 +22,7 @@ public class VideosRecyclerViewAdapter extends RecyclerView.Adapter<VideosViewHo
         this.videos = videos;
     }
 
-
     public void myOnClickItemListener(MyOnClickItem onClickItem) {
-
         this.myOnClickItem = onClickItem;
     }
 
@@ -36,13 +33,12 @@ public class VideosRecyclerViewAdapter extends RecyclerView.Adapter<VideosViewHo
 
     @Override
     public void onBindViewHolder(final VideosViewHolder holder, final int position) {
-        holder.iv.setImageBitmap(videos.get(position).getBitmap());
-        holder.tv.setText(videos.get(position).getDuration());
+        holder.image.setImageBitmap(videos.get(position).getBitmap());
+        holder.duration.setText(videos.get(position).getDuration());
         holder.name.setText(videos.get(position).getFileName());
 
         if (myOnClickItem != null) {
-            //图片点击事件
-            holder.iv.setOnClickListener(new View.OnClickListener() {
+            holder.image.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     myOnClickItem.onClickItem(holder.getLayoutPosition());
@@ -56,20 +52,19 @@ public class VideosRecyclerViewAdapter extends RecyclerView.Adapter<VideosViewHo
         if (videos == null) {
             return 0;
         }
-
         return videos.size();
     }
 }
 
 class VideosViewHolder extends RecyclerView.ViewHolder {
-    public TextView tv;
-    public ImageView iv;
+    public TextView duration;
+    public ImageView image;
     public TextView name;
 
     public VideosViewHolder(View itemView) {
         super(itemView);
-        iv = itemView.findViewById(R.id.iv);
-        tv = itemView.findViewById(R.id.tv);
+        image = itemView.findViewById(R.id.iv);
+        duration = itemView.findViewById(R.id.tv);
         name = itemView.findViewById(R.id.name);
     }
 
