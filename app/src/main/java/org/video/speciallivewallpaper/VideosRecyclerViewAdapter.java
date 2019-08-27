@@ -38,6 +38,7 @@ public class VideosRecyclerViewAdapter extends RecyclerView.Adapter<VideosViewHo
     public void onBindViewHolder(final VideosViewHolder holder, final int position) {
         holder.iv.setImageBitmap(videos.get(position).getBitmap());
         holder.tv.setText(videos.get(position).getDuration());
+        holder.name.setText(videos.get(position).getFileName());
 
         if (myOnClickItem != null) {
             //图片点击事件
@@ -63,11 +64,13 @@ public class VideosRecyclerViewAdapter extends RecyclerView.Adapter<VideosViewHo
 class VideosViewHolder extends RecyclerView.ViewHolder {
     public TextView tv;
     public ImageView iv;
+    public TextView name;
 
     public VideosViewHolder(View itemView) {
         super(itemView);
         iv = itemView.findViewById(R.id.iv);
         tv = itemView.findViewById(R.id.tv);
+        name = itemView.findViewById(R.id.name);
     }
 
 }
