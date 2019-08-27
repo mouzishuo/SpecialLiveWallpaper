@@ -20,13 +20,20 @@ public class VideoUtil {
                 long l = localCursor.getLong(localCursor.getColumnIndexOrThrow("duration"));
                 if (l > 10000L) {
                     Video localVideo = new Video();
-                    localVideo.setPath(localCursor.getString(localCursor.getColumnIndexOrThrow("_data")));
+                    String path = localCursor.getString(localCursor.getColumnIndexOrThrow("_data"));
+                    localVideo.setPath(path);
+
+                    int index = path.lastIndexOf('/');
+                    String fileName = path.substring(index + 1);
+                    localVideo.setFileName(fileName);
+
                     int i = localCursor.getInt(localCursor.getColumnIndexOrThrow("_id"));
                     localVideo.setDuration(localDurationUtils.stringForTime((int) l));
+
                     BitmapFactory.Options localOptions = new BitmapFactory.Options();
                     localOptions.inDither = false;
                     localOptions.inPreferredConfig = Bitmap.Config.ARGB_8888;
-                    localVideo.setBitmap(MediaStore.Video.Thumbnails.getThumbnail(paramContext.getContentResolver(), i, 3, localOptions));
+                    localVideo.setBitmap(MediaStore.Video.Thumbnails.getThumbnail(paramContext.getContentResolver(), i, 1, localOptions));
                     localArrayList.add(localVideo);
                 }
             } while (localCursor.moveToNext());

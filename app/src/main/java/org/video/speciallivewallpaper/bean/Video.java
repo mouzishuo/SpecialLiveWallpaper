@@ -6,6 +6,7 @@ public class Video {
     private Bitmap bitmap;
     private String duration;
     private String path;
+    private String fileName;
 
     public Video() {
     }
@@ -21,22 +22,30 @@ public class Video {
     }
 
     public String getDuration() {
-        return this.duration;
+        return duration;
     }
 
     public String getPath() {
-        return this.path;
+        return path;
     }
 
     public void setBitmap(Bitmap paramBitmap) {
-        this.bitmap = paramBitmap;
+        bitmap = paramBitmap;
     }
 
     public void setDuration(String paramString) {
-        this.duration = paramString;
+        duration = paramString;
     }
 
     public void setPath(String paramString) {
-        this.path = paramString;
+        path = paramString;
+    }
+
+    public void setFileName(String fileName){
+        this.fileName = fileName;
+    }
+
+    public String getFileName() {
+        return fileName;
     }
 }

@@ -4,5 +4,6 @@
     <string name="normal_wallpaper_des">wallpaper setting</string>
 
     <string name="facebook_app_id">2090295144585089</string>
+    <string name="select_a_video">"Select a video:"</string>
 
 </resources>
