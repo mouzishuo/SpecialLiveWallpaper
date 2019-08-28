@@ -16,11 +16,14 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.widget.Toast;
 
 import org.video.speciallivewallpaper.bean.Video;
 
 import java.util.ArrayList;
+
+import static android.support.v7.widget.StaggeredGridLayoutManager.VERTICAL;
 
 public class VideosActivity extends Activity {
 
@@ -43,7 +46,8 @@ public class VideosActivity extends Activity {
         rv.setItemAnimator(new DefaultItemAnimator());
         VideosRecyclerViewAdapter videosRecyclerViewAdapter = new VideosRecyclerViewAdapter(this, this.videos);
         rv.setAdapter(videosRecyclerViewAdapter);
-        rv.setLayoutManager(new GridLayoutManager(this, 2));
+//        rv.setLayoutManager(new GridLayoutManager(this, 2));
+        rv.setLayoutManager(new StaggeredGridLayoutManager(2, VERTICAL));
         videosRecyclerViewAdapter.myOnClickItemListener(new MyOnClickItem() {
             @Override
             public void onClickItem(int position) {
